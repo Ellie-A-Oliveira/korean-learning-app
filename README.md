@@ -7,14 +7,20 @@ A scalable Angular/standalone rewrite of the original single-file Korean learnin
 See [docs/architecture.md](docs/architecture.md) for the component, routing, state-flow, and extension-point reference.
 
 ## Run
-1. Install Node 22.12+ (or Node 20.19+).
-2. `npm install`
-3. `npm start`
+Use [Volta](https://volta.sh/) for every project command so the pinned Node `22.12.0` runtime from `package.json` is used consistently.
+
+1. Install Volta if it is not already available.
+2. `volta run npm install`
+3. `volta run npm start`
 4. Open the local URL printed by Angular CLI.
 
 ## Quality checks
 
-Run `npm run lint` before submitting a change. Lint violations must be fixed; do not bypass, disable, or suppress lint rules unless the repository maintainers explicitly approve an exception.
+Run `volta run npm run lint` before submitting a change. Lint violations must be fixed; do not bypass, disable, or suppress lint rules unless the repository maintainers explicitly approve an exception.
+
+## TypeScript rules
+
+Keep domain types in `src/app/core/models.ts` and use them at feature and shared-component boundaries. Shared component inputs and outputs, service methods, public properties, and helper functions must have explicit types; use Angular signal inputs such as `input.required<T>()` when appropriate. Avoid `any`, untyped object literals, and type assertions that hide an invalid shape. Use discriminated unions or interfaces for new data structures and keep curriculum data consistent with those types.
 
 ## Scale-up path
 The current app intentionally uses a content/service boundary so content can later move to JSON or an API, and the local storage adapter can later become IndexedDB or a backend repository without rewriting the feature components.

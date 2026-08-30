@@ -5,6 +5,7 @@
 - Keep changes focused on the requested outcome. Do not overwrite unrelated working-tree changes.
 - Inspect the affected code before editing it, then run the narrowest relevant validation. Run `npm run build` for changes that can affect compilation or routing.
 - Run `npm run lint` for every code change before handing work off. Lint rules must always be followed: fix violations instead of disabling, suppressing, or bypassing rules unless the repository maintainers explicitly approve an exception.
+- Always use Volta to run project commands, for example `volta run npm run lint`, `volta run npm run build`, and `volta run npm start`; do not invoke the project’s Node/npm commands directly.
 - Use the existing compact TypeScript style in adjacent files unless a task includes a formatting pass.
 - Update [README.md](README.md) and [docs/architecture.md](docs/architecture.md) when a change alters developer workflow or the documented structure.
 
@@ -39,6 +40,13 @@ Use an optional scope when it makes the affected area clearer. Common types are 
 - Build screens as standalone components under `src/app/features/<feature>/`; add user-facing routes in `src/app/app.routes.ts` using lazy `loadComponent` imports.
 - Put reusable presentation-only components in `src/app/shared/`.
 - Avoid copying state or scheduling rules into feature components. Components should consume `StudyStateService` and the content data instead.
+
+## TypeScript rules
+
+- Keep stable domain types in `src/app/core/models.ts`; use those types at feature, service, and shared-component boundaries.
+- Add explicit types to shared component inputs/outputs, service methods, public properties, and helper functions. Prefer `input.required<T>()` for required Angular signal inputs.
+- Do not introduce `any`, untyped object literals, or type assertions that conceal an invalid shape. Prefer interfaces, discriminated unions, and typed generic helpers.
+- Keep curriculum data aligned with its model types and update the model before adding a new persisted or reusable data shape.
 
 ## Codex skills
 
