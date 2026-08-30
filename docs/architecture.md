@@ -24,7 +24,7 @@ main.ts
 | Domain and state | `src/app/core/` | Defines durable models and owns persisted study progress plus review scheduling. |
 | Curriculum | `src/app/data/study-data.ts` | Stores lesson, character, and vocabulary content independently of the UI. |
 | Features | `src/app/features/` | Implements dashboard, lesson, character, practice, and review workflows. |
-| Shared UI | `src/app/shared/` | Holds reusable presentation components such as the shell card. |
+| Shared UI | `src/app/shared/` | Holds reusable presentation components such as the shell card, page header, lesson row, and stat card. |
 | Global styling | `src/styles.scss` | Defines application-wide visual styles. |
 
 ## Routing
@@ -50,3 +50,5 @@ The review scheduler is deliberately centralized in `StudyStateService`. Ratings
 ## Development checks
 
 Use `npm start` for local development, `npm run lint` to enforce the TypeScript and Angular lint rules, and `npm run build` to verify production compilation. Lint violations must be resolved rather than suppressed or disabled without maintainer approval. See [README.md](../README.md) for setup and repository commit conventions.
+
+Shared presentation components should receive typed inputs and remain free of study-state or scheduling rules. Domain models belong in `src/app/core/models.ts`; feature components should pass those models into shared components rather than duplicating their markup or shape definitions. See [AGENTS.md](../AGENTS.md) for the full TypeScript rules.
