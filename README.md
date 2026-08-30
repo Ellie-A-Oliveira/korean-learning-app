@@ -11,7 +11,7 @@ A scalable Angular/standalone rewrite of the original single-file Korean learnin
 - standalone components + Angular router
 
 ## Run
-1. Install Node 20+.
+1. Install Node 22.12+ (or Node 20.19+).
 2. `npm install`
 3. `npm start`
 4. Open the local URL printed by Angular CLI.
