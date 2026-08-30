@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { StudyStateService } from '../../core/study-state.service';
 
@@ -7,4 +7,4 @@ import { StudyStateService } from '../../core/study-state.service';
 <nav>
 <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a><a routerLink="/lessons" routerLinkActive="active">Lesson path</a><a routerLink="/characters" routerLinkActive="active">Characters</a><a routerLink="/practice" routerLinkActive="active">Practice</a><a routerLink="/review" routerLinkActive="active">Flashcards <span>{{state.dueCount()}}</span></a>
 </nav></aside><main><ng-content /></main></div>`})
-export class LayoutComponent { constructor(public state:StudyStateService){} }
+export class LayoutComponent {readonly state=inject(StudyStateService);}

@@ -4,6 +4,7 @@
 
 - Keep changes focused on the requested outcome. Do not overwrite unrelated working-tree changes.
 - Inspect the affected code before editing it, then run the narrowest relevant validation. Run `npm run build` for changes that can affect compilation or routing.
+- Run `npm run lint` for every code change before handing work off. Lint rules must always be followed: fix violations instead of disabling, suppressing, or bypassing rules unless the repository maintainers explicitly approve an exception.
 - Use the existing compact TypeScript style in adjacent files unless a task includes a formatting pass.
 - Update [README.md](README.md) and [docs/architecture.md](docs/architecture.md) when a change alters developer workflow or the documented structure.
 

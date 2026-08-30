@@ -1,5 +1,5 @@
 import { Injectable, computed, signal } from '@angular/core';
-import { AppState, CardState, Rating, CardType } from './models';
+import { AppState, CardState, Rating } from './models';
 import { VOCAB } from '../data/study-data';
 
 const KEY='hangeul-path-v2';

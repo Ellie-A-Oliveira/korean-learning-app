@@ -49,4 +49,4 @@ The review scheduler is deliberately centralized in `StudyStateService`. Ratings
 
 ## Development checks
 
-Use `npm start` for local development and `npm run build` to verify production compilation. See [README.md](../README.md) for setup and repository commit conventions.
+Use `npm start` for local development, `npm run lint` to enforce the TypeScript and Angular lint rules, and `npm run build` to verify production compilation. Lint violations must be resolved rather than suppressed or disabled without maintainer approval. See [README.md](../README.md) for setup and repository commit conventions.
