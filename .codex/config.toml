@@ -1,0 +1,5 @@
+# Project-local Codex settings.
+#
+# Repository instructions belong in ../AGENTS.md. This size limit leaves
+# enough room for that file and any future scoped agent instructions.
+project_doc_max_bytes = 32768
